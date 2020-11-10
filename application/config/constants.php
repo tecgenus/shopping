@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-define('ADMINURL', 'http://'.$_SERVER['HTTP_HOST'].'/e-commerce/');
-define('USERURL','http://'.$_SERVER['HTTP_HOST'].'/e-commerce/');
+define('ADMINURL', 'http://'.$_SERVER['HTTP_HOST'].'/shopping/');
+define('USERURL','http://'.$_SERVER['HTTP_HOST'].'/shopping/');
 
 
 /*

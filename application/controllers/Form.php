@@ -20,5 +20,10 @@ class Form extends CI_Controller {
 
 			return $this->load->view('pages/admin/index');
 		}
+		public function index()
+	{
+
+		$this->load->view('pages/user/home');
+	}
 
 }

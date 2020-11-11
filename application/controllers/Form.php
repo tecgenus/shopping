@@ -6,11 +6,16 @@ class Form extends CI_Controller {
 				parent::__construct();
 				$this->load->model('Form_model');
 			}
+	public function index()
+	{
+
+		$this->load->view('pages/admin/index');
+	}
 
 	public function create_form()
 	{
 
-		$this->load->view('pages/admin/index');
+		$this->load->view('pages/admin/form');
 	}
 	public function add_data()
 		{
@@ -20,10 +25,4 @@ class Form extends CI_Controller {
 
 			return $this->load->view('pages/admin/index');
 		}
-		public function index()
-	{
-
-		$this->load->view('pages/user/home');
-	}
-
 }

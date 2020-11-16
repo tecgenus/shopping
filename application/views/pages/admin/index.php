@@ -1,3 +1,20 @@
+<?php
+// print_r($_SESSION); exit();
+  if(!isset($_SESSION['login']))
+  {?>
+    <script>
+      window.location.href="<?php echo base_url().'admin/login'; ?>";
+    </script>
+    <?php
+  }
+  else if($_SESSION['login']!="true")
+  {?>
+    <script>
+      window.location.href="<?php echo base_url().'admin/login'; ?>";
+    </script>
+    <?php
+  }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -723,5 +740,10 @@
 <script src="<?php echo ADMINURL; ?>admin_assets/dist/js/pages/dashboard3.js"></script>
 <script src="<?php echo ADMINURL; ?>admin_assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script src="<?php echo ADMINURL; ?>admin_assets/plugins/summernote/summernote-bs4.min.js"></script>
+<style>
+  label.error {
+      color: red;
+  }
+</style>
 </body>
 </html>

@@ -30,4 +30,11 @@ class Admin extends CI_Controller {
 
 		return $this->load->view('pages/admin/index');
 	}
+	public function add_categories()
+	{
+		$this->Categories_model->categories_insert();
+		echo "<script> alert('data inserted sucessfully')</script>";
+		$this->load->view('pages/admin/categories');
+	}
+
 }

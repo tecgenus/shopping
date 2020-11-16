@@ -20,9 +20,13 @@ include_once "index.php";
   <style>
       .content
       {
-          margin-left: 20%;
+          margin-left: 35%;
           margin-top: 2%;
           margin-right: 5%;
+      }
+      .content
+      {
+        width: 50%;
       }
   </style>
   </head>
@@ -45,27 +49,34 @@ include_once "index.php";
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="add_data" id="add_data"
+              <form class="form-horizontal" method="post" action="add_categories" id="add_categories"
               enctype='multipart/form-data'>
                 <div class="card-body">
 
                   <div class="form-group row">
                     <label for="title" class="col-sm-2 col-form-label">Title</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-8">
                       <input type="text" class="form-control" id="title" name="title" placeholder="Title" onkeyup="EnableDisable(this)" required>
                     </div>
                   </div>
       
                <div class="form-group row">
                <label for="level" class="col-sm-2 col-form-label">Level:</label>
-               <div class="col-sm-10">
-                      <input type="number" class="form-control" id="level" name="level" placeholder="level"  required>
+               <div class="col-sm-2">
+                      <select  class="form-control" id="level" name="level" required>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      </select>
                     </div>
              </div>
           <div class="form-group row" id="wrapper">
                        <label for="parent" class="col-sm-2 col-form-label">Parent:</label>
-                       <div class="col-sm-10">
-                      <input type="text" class="form-control" id="parent" name="parent" placeholder="parent"  required>
+                       <div class="col-sm-8">
+                      <select class="form-control" id="parent" name="parent" required>
+                      <option value="Electronics">Electronics</option>
+                      <option value="TVs&Appliances">TVs&Appliances</option>
+                      <option value="Home&Furniture">Home&Furniture</option>
+                      </select>
                     </div>
                   </div>
                   
@@ -81,7 +92,7 @@ include_once "index.php";
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer" align="center">
-                  <button type="button" name="submit" id="submit" class="btn btn-info">Submit</button>
+                  <button type="submit" name="submit" id="submit" class="btn btn-info">Submit</button>
                 </div>
                 <!-- /.card-footer -->
               </form>

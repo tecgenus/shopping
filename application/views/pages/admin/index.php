@@ -193,7 +193,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo ADMINURL; ?>categories" class="nav-link">
+                <a href="<?php echo ADMINURL; ?>admin/category" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Categories</p>
                 </a>

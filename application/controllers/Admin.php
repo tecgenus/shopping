@@ -6,6 +6,7 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Form_model');
 		$this->load->model('Admin_model');
+		$this->load->model('Categories_model');
 	}
 
 	public function login()
@@ -48,9 +49,11 @@ class Admin extends CI_Controller {
 	}
 	public function add_categories()
 	{
-		$this->Categories_model->categories_insert();
+		$this->Categories_model->categories_add();
+		
 		echo "<script> alert('data inserted sucessfully')</script>";
-		$this->load->view('pages/admin/categories');
+		
+		return $this->load->view('pages/admin/categories');
 	}
 
 }

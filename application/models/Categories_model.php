@@ -3,7 +3,7 @@
 class Categories_model extends CI_Model
 {
 
-    public function categories_insert()
+    public function categories_add()
     {    
         
         $data = array(

@@ -26,8 +26,12 @@ include_once "index.php";
       }
       .content
       {
-        width: 50%;
+        width: 60%;
       }
+      #output_image
+    {
+       width:10%;
+     }
   </style>
   </head>
   <body>
@@ -56,14 +60,14 @@ include_once "index.php";
                   <div class="form-group row">
                     <label for="title" class="col-sm-2 col-form-label">Title</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="title" name="title" placeholder="Title" onkeyup="EnableDisable(this)" required>
+                      <input type="text" class="form-control" id="title" name="title" placeholder="Title" required="">
                     </div>
                   </div>
       
                <div class="form-group row">
                <label for="level" class="col-sm-2 col-form-label">Level:</label>
                <div class="col-sm-2">
-                      <select  class="form-control" id="level" name="level" required>
+                      <select  class="form-control" id="level" name="level" required="">
                       <option value="0">0</option>
                       <option value="1">1</option>
                       </select>
@@ -72,19 +76,25 @@ include_once "index.php";
           <div class="form-group row" id="wrapper">
                        <label for="parent" class="col-sm-2 col-form-label">Parent:</label>
                        <div class="col-sm-8">
-                      <select class="form-control" id="parent" name="parent" required>
+                      <select class="form-control" id="parent" name="parent" required="">
                       <option value="Electronics">Electronics</option>
                       <option value="TVs&Appliances">TVs&Appliances</option>
                       <option value="Home&Furniture">Home&Furniture</option>
                       </select>
                     </div>
                   </div>
-                  
+                  <div class="form-group row" id="wrapper">
+                       <label for="image" class="col-sm-2 col-form-label">Select image:</label>
+                       <div class="col-sm-10">
+  <input type="file" id="image" name="image" accept="image/*" onchange="preview_image(event)">
+   <img id="output_image"/>
+                    </div>
+                  </div>
                   <div class="form-group row">
                     <label for="status" class="col-sm-2 col-form-label">Status:</label>
                     <div class="col-sm-10">
                   <label class="switch">
-                      <input type="checkbox" id="status" name="status" value="1">
+                      <input type="checkbox" id="status" name="status" value="0">
                       <span class="slider round"></span>
                   </label>
                 </div>
@@ -116,5 +126,54 @@ include_once "index.php";
 <script src="<?php echo ADMINURL; ?>admin_assets/dist/js/pages/dashboard3.js"></script>
 <script src="<?php echo ADMINURL; ?>admin_assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script src="<?php echo ADMINURL; ?>admin_assets/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+            $("#add_categories").validate({
+                rules: {
+                    title: {
+                      required: true
+                  }
+              },
+              submitHandler: function(form) {
+                var formData = new FormData($("#add_categories")[0]);
+
+                alert(form_data);                             
+                $.ajax({
+                    url: 'add_categories', // point to server-side PHP script 
+                    dataType: 'text',  // what to expect back from the PHP script, if anything
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: form_data,                         
+                    type: 'post',
+
+                 success: function (data) {
+                    if(data=='1')
+                    {
+                       window.location.href="<?php echo base_url().'admin/'; ?>"
+                    }
+                    else
+                    {
+                        alert(data);
+                    }
+               }
+           });
+
+           }
+       });
+   </script>
+   <script>
+    function preview_image(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  var output1 = document.getElementById('imagepreview');
+  output.src = reader.result;
+  output1.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+} 
+   </script>
 </body>
 </html>

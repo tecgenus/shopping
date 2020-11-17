@@ -185,7 +185,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fa fa-list-alt"></i>
               <p>
                 Categories
                 <i class="fas fa-angle-left right"></i>
@@ -194,13 +194,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?php echo ADMINURL; ?>admin/category" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-plus-square nav-icon"></i>
                   <p>Add Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo ADMINURL; ?>pages/UI/icons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="<?php echo ADMINURL; ?>admin/categorytable" class="nav-link">
+                  <i class="fa fa-table nav-icon"></i>
                   <p>View Categories</p>
                 </a>
               </li>
@@ -735,7 +735,7 @@
 <script src="<?php echo ADMINURL; ?>admin_assets/dist/js/adminlte.js"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="<?php echo ADMINURL; ?>admin_assets/plugins/chart.js/Chart.min.js"></script>
+<!-- <script src="<?php echo ADMINURL; ?>admin_assets/plugins/chart.js/Chart.min.js"></script> -->
 <script src="<?php echo ADMINURL; ?>admin_assets/dist/js/demo.js"></script>
 <script src="<?php echo ADMINURL; ?>admin_assets/dist/js/pages/dashboard3.js"></script>
 <script src="<?php echo ADMINURL; ?>admin_assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>

@@ -36,7 +36,8 @@ class Admin extends CI_Controller {
 
 	public function categorytable()
 	{
-		$this->load->view('pages/admin/categories_table');
+		$data['tab_value'] = $this->categories_display();
+		$this->load->view('pages/admin/categories_table', $data);
 	}
 
 	public function create_form()
@@ -58,14 +59,25 @@ class Admin extends CI_Controller {
 		$this->Categories_model->categories_add();
 		
 		echo "<script> alert('data inserted sucessfully')</script>";
-		
 		redirect('admin/category', 'refresh');
 		return $this->load->view('pages/admin/categories');
 	}
 	public function categories_display()
     {
-	   $data['category']=$this->Categories_model->get_category();
-	   $this->load->view('pages/admin/categories_table',$data);
+	   $data = $this->Categories_model->get_category('*','category',array());
+	   $result = array();
+		$i = 1;
+		foreach ($data as $key => $value) {
+
+			$result['data'][] = array(
+				$value['title'],
+				$value['level'],
+				$value['parent'],
+				$value['image'],
+				$value['status'],
+			);
+		}
+		return $data;
     }
 
 }

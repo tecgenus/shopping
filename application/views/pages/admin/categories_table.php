@@ -23,13 +23,19 @@ include_once "index.php";
   {
       width: 80%;
       margin-left: 20%;
-      margin-top: 2%;
+      margin-top: 5%;
       margin-right: 5%;
   }
+  #add
+{
+  margin-top: 2%;
+  margin-right: 10%;
+}
   </style>
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="card">
+<a href="<?php echo ADMINURL; ?>admin/category"><button class="btn btn-primary btn-sm float-right fa fa-plus-square" id="add">Add Category</button></a>
+<div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Category Table</h3>
               </div>
@@ -38,6 +44,7 @@ include_once "index.php";
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                   <th>SID</th>
                     <th>Title</th>
                     <th>Level</th>
                     <th>Parent</th>
@@ -47,7 +54,29 @@ include_once "index.php";
                   </tr>
                   </thead>
                   <tbody>
-                          
+                  <?php 
+                  $i=1;
+                    foreach ($tab_value as $key => $value) {?>
+                    <tr>
+                    <td><?php echo $i; ?></td>
+                    <td><?php echo $value['title']; ?></td>
+                    <td><?php echo $value['level']; ?></td>
+                    <td><?php echo $value['parent']; ?></td>
+                    <td><?php echo $value['image']; ?></td>
+                    <td><?php echo $value['status']; ?></td>
+                    <td><button class="btn btn-light btn-sm far fa-edit"></button>
+                    <button class="btn btn-light btn-sm far fa-trash-alt"></button>
+                    <button class="btn btn-light btn-sm far fa-eye"></button>
+                    </td>
+                    
+                    </tr>
+
+                      
+                   <?php 
+                  $i++; 
+                  }
+                  
+                  ?>
                   </tbody>
                 </table>
               </div>
@@ -83,6 +112,13 @@ include_once "index.php";
       "responsive": true,
     });
   });
+  // $(document).ready(function(){
+	// 		$('#example1').DataTable({
+	// 			"ajax" : "<?php echo base_url('Admin/categories_display'); ?>",
+	// 			"order": [],
+	// 		});
+	// 	});
+    
 </script>
 </body>
 </html>

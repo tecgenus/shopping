@@ -36,11 +36,13 @@ class Categories_model extends CI_Model
         );
        return $this->db->insert('category', $data);
     } 
-    public function get_category()
+    public function get_category($data,$tablename,$where)
     {
-        $query = $this->db->query('select * from category');
-        $result = $query->result_array();
-        return $result;
+        $query = $this->db->select($data)
+        ->from($tablename)
+        ->where($where)
+        ->get();
+        return $query->result_array();
     }
 }
 ?>

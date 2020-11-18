@@ -20,7 +20,7 @@ include_once "index.php";
   <style>
       .content
       {
-          margin-left: 35%;
+          margin-left: 30%;
           margin-top: 2%;
           margin-right: 5%;
       }
@@ -32,11 +32,15 @@ include_once "index.php";
     {
        width:10%;
      }
+#view
+{
+  margin-top: 2%;
+  margin-right: 10%;
+}
   </style>
   </head>
-  <body>
-      
-
+  <body>  
+  <a href="<?php echo ADMINURL; ?>admin/categorytable"><button class="btn btn-primary btn-sm float-right fa fa-eye" id="view">View Category</button></a>
 <div class="content">
     <!-- Content Header (Page header) -->
     <div class="content-header">

@@ -35,7 +35,7 @@ include_once "index.php";
   </style>
 </head>
 <body class="hold-transition sidebar-mini">
-<a href="<?php echo ADMINURL; ?>admin/category"><button class="btn btn-primary btn-sm float-right fa fa-plus-square" id="add">Add Category</button></a>
+
 <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Category Table</h3>
@@ -44,6 +44,8 @@ include_once "index.php";
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
+                  <a href='<?= base_url() ?>Admin/export_csv'><button type="button" class="btn-default" id="csv">CSV</button></a>
+                  <a href='<?= base_url() ?>Admin/mypdf'><button type="button" class="btn-default" id="pdf">PDF</button></a>
                   <tr>
                    <th>SNO</th>
                     <th>Title</th>
@@ -75,6 +77,7 @@ include_once "index.php";
                           echo "<p>Inactive</p>";
                         }
                         ?>
+                    </td>
                     </td>
                     <td><button class="btn btn-light btn-sm far fa-edit"></button>
                     <button class="btn btn-light btn-sm far fa-trash-alt"></button>

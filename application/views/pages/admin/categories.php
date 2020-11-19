@@ -36,6 +36,7 @@ include_once "index.php";
 {
   margin-top: 2%;
   margin-right: 10%;
+  padding: 5px;
 }
   </style>
   </head>

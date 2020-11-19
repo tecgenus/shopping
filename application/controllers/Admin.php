@@ -39,6 +39,11 @@ class Admin extends CI_Controller {
 		$data['tab_value'] = $this->categories_display();
 		$this->load->view('pages/admin/categories_table', $data);
 	}
+	public function categoryreport()
+	{
+		$data['tab_value'] = $this->categories_display();
+		$this->load->view('pages/admin/categories_report', $data);
+	}
 
 	public function create_form()
 	{
@@ -78,6 +83,23 @@ class Admin extends CI_Controller {
 			);
 		}
 		return $data;
-    }
-
+	}
+	public function export_csv(){ 
+		// file name 
+		$filename = 'category_'.date('dmY').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");
+	   // get data 
+		$usersData = $this->Categories_model->get_category('*','category',array());
+		// file creation 
+		$file = fopen('php://output','w');
+		$header = array("SNO","Title","Level","Parent","Image","Status"); 
+		fputcsv($file, $header);
+		foreach ($usersData as $key=>$line){ 
+			fputcsv($file,$line); 
+		}
+		fclose($file); 
+		exit; 
+	}
 }

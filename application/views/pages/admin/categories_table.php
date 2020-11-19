@@ -1,41 +1,21 @@
 <?php
 include_once "index.php";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Category Table</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/ionicons/css/ionicons.min.css">
-  <!-- DataTables -->
+  
   <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/dist/css/adminlte.min.css">
   <style>
   .card
   {
-      width: 80%;
-      margin-left: 20%;
-      margin-top: 5%;
-      margin-right: 5%;
+      width: 1000px;
+      margin-left: 300px;
+      margin-top: 50px;
   }
-  #add
-{
-  margin-top: 2%;
-  margin-right: 10%;
-  padding: 5px;
-}
   </style>
 </head>
 <body class="hold-transition sidebar-mini">
-<a href="<?php echo ADMINURL; ?>admin/category"><button class="btn btn-primary btn-sm float-right fa fa-plus-square" id="add">Add Category</button></a>
+<a href="<?php echo ADMINURL; ?>admin/category"><button class="btn btn-info btn-sm float-right fa fa-plus-square" id="add">Add Category</button></a>
 <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Category Table</h3>
@@ -65,23 +45,14 @@ include_once "index.php";
                     <td><?php echo $value['parent']; ?></td>
                     <td><?php echo $value['image']; ?></td>
                     <td>
-                    <?php 
-                        if ($value['status']==1)
-                        {
-                          echo "<p>Active</p>";
-                        }
-                        else
-                        {
-                          echo "<p>Inactive</p>";
-                        }
-                        ?>
-                    </td>
-                    <td><button class="btn btn-light btn-sm far fa-edit"></button>
-                    <button class="btn btn-light btn-sm far fa-trash-alt"></button>
                     <label class="switch">
                       <input type="checkbox" id="status" name="status" value="0">
                       <span class="slider round "></span>
                   </label>
+                    </td>
+                    <td><button class="btn btn-light btn-sm far fa-edit"></button>
+                    <button class="btn btn-light btn-sm far fa-trash-alt"></button>
+                    
                     </td>
                     
                     </tr>

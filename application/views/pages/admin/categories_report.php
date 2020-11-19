@@ -1,37 +1,15 @@
 <?php
 include_once "index.php";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Category Table</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/ionicons/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/dist/css/adminlte.min.css">
-  <style>
-  .card
+ 
+  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/dist/css/datatable.css">
+   <style>
+ .card
   {
-      width: 80%;
-      margin-left: 20%;
-      margin-top: 5%;
-      margin-right: 5%;
+      width: 1000px;
+      margin-left: 300px;
+      margin-top: 50px;
   }
-  #add
-{
-  margin-top: 2%;
-  margin-right: 10%;
-  padding: 5px;
-}
   </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -42,10 +20,9 @@ include_once "index.php";
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1"  class="table table-bordered table-striped">
                   <thead>
-                  <a href='<?= base_url() ?>Admin/export_csv'><button type="button" class="btn-default" id="csv">CSV</button></a>
-                  <a href='<?= base_url() ?>Admin/mypdf'><button type="button" class="btn-default" id="pdf">PDF</button></a>
+                  <!-- <a href='<?= base_url() ?>Admin/export_csv'><button type="button" class="btn-default" id="csv">CSV</button></a> -->
                   <tr>
                    <th>SNO</th>
                     <th>Title</th>
@@ -53,7 +30,6 @@ include_once "index.php";
                     <th>Parent</th>
                     <th>Image</th>
                     <th>Status</th>
-                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -78,14 +54,6 @@ include_once "index.php";
                         }
                         ?>
                     </td>
-                    </td>
-                    <td><button class="btn btn-light btn-sm far fa-edit"></button>
-                    <button class="btn btn-light btn-sm far fa-trash-alt"></button>
-                    <label class="switch">
-                      <input type="checkbox" id="status" name="status" value="0">
-                      <span class="slider round "></span>
-                  </label>
-                    </td>
                     
                     </tr>
 
@@ -101,42 +69,26 @@ include_once "index.php";
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-  <script src="<?php echo ADMINURL; ?>admin_assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?php echo ADMINURL; ?>admin_assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables -->
-<script src="<?php echo ADMINURL; ?>admin_assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo ADMINURL; ?>admin_assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="<?php echo ADMINURL; ?>admin_assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?php echo ADMINURL; ?>admin_assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo ADMINURL; ?>admin_assets/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo ADMINURL; ?>admin_assets/dist/js/demo.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+            <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+            <script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+            <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
+            <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>
 <!-- page script -->
 <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true,
-      "autoWidth": false,
-    });
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-  // $(document).ready(function(){
-	// 		$('#example1').DataTable({
-	// 			"ajax" : "<?php echo base_url('Admin/categories_display'); ?>",
-	// 			"order": [],
-	// 		});
-	// 	});
-    
+$(document).ready(function() {
+    $('#example1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+          'csv','pdf'
+        ]
+    } );
+} );
 </script>
+<style></style>
 </body>
 </html>

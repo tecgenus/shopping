@@ -1,47 +1,23 @@
 <?php
 include_once "index.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-  <title>Form</title>
-
-<link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/plugins/fontawesome-free/css/all.min.css">
-  <!-- IonIcons -->
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/dist/css/adminlte.min.css">
+  <title>Categories</title>
   <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/dist/css/slider.min.css">
-  <link rel="stylesheet" href="<?php echo ADMINURL; ?>admin_assets/plugins/summernote/summernote-bs4.css">
   <style>
       .content
       {
-          margin-left: 30%;
-          margin-top: 2%;
-          margin-right: 5%;
-      }
-      .content
-      {
-        width: 60%;
+        width: 1000px;
+      margin-left: 300px;
+      margin-top: 20px;
       }
       #output_image
     {
        width:10%;
      }
-#view
-{
-  margin-top: 2%;
-  margin-right: 10%;
-  padding: 5px;
-}
   </style>
   </head>
   <body>  
-  <a href="<?php echo ADMINURL; ?>admin/categorytable"><button class="btn btn-primary btn-sm float-right fa fa-eye" id="view">View Category</button></a>
+  <a href="<?php echo ADMINURL; ?>admin/categorytable"><button class="btn btn-info btn-sm float-right fa fa-eye" id="view">View Category</button></a>
 <div class="content">
     <!-- Content Header (Page header) -->
     <div class="content-header">
